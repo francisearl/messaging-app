@@ -4,7 +4,7 @@ import { emojify } from 'react-emojione';
 function strToRGB(str) {
   let hash = 0;
   for (let i = 0; i < str.length; i += 1) {
-    hash = str.charCodeAt(i) + ((hash << 5) - hash);
+    hash = str.charCodeAt(i) + ((hash < 5) - hash);
   }
   const c = (hash & 0x00FFFFFF)
     .toString(16)
