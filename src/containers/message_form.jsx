@@ -28,7 +28,28 @@ class MessageForm extends Component {
     return (
       <form onSubmit={this.handleSubmit} className="channel-editor">
         <input
+          ref={(input) => {this.messageBox = input; }}
+          type="text"
+          className="form-control"
+          autoComplete="off"
+          value={this.state.value}
+          onChange={this.handleChange}
+        />
+        <button type="submit">Send</button>
       </form>
-    )
+    );
   }
 }
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ createMessage }, dispatch);
+}
+
+function mapStateToProps(state) {
+  return {
+    currentUser: state.currentUser,
+    selectedChannel: state.selectedChannel
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(MessageForm);
