@@ -11,9 +11,9 @@ export default function(state = null, action) {
       return copiedState;
     }
     case CHANNEL_SELECTED: {
-      return[];
+      return [];
     }
-    default
-      return state
-  };
+    default:
+      return state;
+  }
 }
