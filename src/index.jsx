@@ -17,21 +17,23 @@ const identityReducer = (state = null) => state;
 
 const initialState = {
   messages: [],
-  channels: ['general-chat', 'london-chat', 'gaming'],
-  currentUser: prompt("What is your username?") || `anonymous${Math.floor(10 + (Math.random() * 90))}`,
-  selectedChannel: 'general'
+  channels: ['general-chat', 'london-chat', 'gaming-chat'],
+  currentUser: prompt("Enter Username") || `anonymous${Math.floor(10 + (Math.random() * 90))}`,
+  selectedChannel: 'general-chat'
 };
 
 const reducers = combineReducers({
   messages: messagesReducer,
   channels: identityReducer,
   currentUser: identityReducer,
-  selectedChannelReducer: selectedChannelReducer
+  selectedChannel: selectedChannelReducer
 });
 
-const middllewares = applyMiddleware(reduxPromise, logger);
-const store = createStore(reducers, initialState, middllewares);
+// Middlewares
+const middlewares = applyMiddleware(reduxPromise, logger);
+const store = createStore(reducers, initialState, middlewares);
 
+// render an instance of the component in the DOM
 ReactDOM.render(
   <Provider store={store}>
     <App />
