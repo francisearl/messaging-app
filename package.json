@@ -1,5 +1,6 @@
 {
   "license": "UNLICENSED",
+  "homepage": "https://francisearl.github.io/messaging-app",
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-eslint": "^8.0.0",
@@ -41,3 +42,4 @@
     "deploy": "webpack -p && gh-pages -d dist"
   }
 }
+
